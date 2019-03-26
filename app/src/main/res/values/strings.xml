@@ -3,4 +3,5 @@
     <string name="error_button_retry">Retry</string>
     <string name="search">Search</string>
     <string name="found_results">Results for <i>%s</i></string>
+    <string name="no_results">No gifs found for <i>%s</i></string>
 </resources>

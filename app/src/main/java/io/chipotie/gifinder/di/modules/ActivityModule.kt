@@ -2,6 +2,7 @@ package io.chipotie.gifinder.di.modules
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import io.chipotie.gifinder.ui.SearchActivity
 import io.chipotie.gifinder.ui.TrendingActivity
 
 /*
@@ -12,4 +13,7 @@ import io.chipotie.gifinder.ui.TrendingActivity
 abstract class ActivityModule{
     @ContributesAndroidInjector
     abstract fun contributeTrendingActivity(): TrendingActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributeSearchActivity(): SearchActivity
 }

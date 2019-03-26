@@ -13,4 +13,7 @@ interface GifinderApi{
 
     @GET("trending")
     fun trending(@Query("api_key") apiKey: String, @Query("limit") limit: Int, @Query("offset") offset: Long): Call<GifResponse>
+
+    @GET("search")
+    fun search(@Query("api_key") apiKey: String, @Query("q") query: String, @Query("limit") limit: Int, @Query("offset") offset: Long): Call<GifResponse>
 }

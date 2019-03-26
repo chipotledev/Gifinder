@@ -35,6 +35,8 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
 
     private lateinit var gifListAdapter: GifListAdapter
 
+    private var searchItem: MenuItem? = null
+
     @Inject
     lateinit var gifViewModel: GifViewModel
 
@@ -90,10 +92,11 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
         startActivity(intent, options.toBundle())
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_trending, menu)
 
-        val searchItem = menu?.findItem(R.id.action_search)
+        searchItem = menu?.findItem(R.id.action_search)
         val searchView: SearchView = searchItem?.actionView as SearchView
 
         searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
@@ -102,11 +105,10 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
             }
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@TrendingActivity, query, Toast.LENGTH_SHORT).show()
-
                 val intent = Intent(this@TrendingActivity, SearchActivity::class.java)
                 intent.putExtra(EXTRA_QUERY, query)
-                startActivity(intent)
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this@TrendingActivity).toBundle())
+                searchItem?.collapseActionView()
                 return false
             }
         })
