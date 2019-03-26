@@ -4,9 +4,12 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -25,6 +28,7 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
 
     companion object {
         val EXTRA_GIF = "EXTRA_GIF"
+        val EXTRA_QUERY = "EXTRA_QUERY"
     }
 
     private lateinit var binding : ActivityTrendingBinding
@@ -46,7 +50,6 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
 
         gifViewModel.gifList.observe(this, Observer {
             gifListAdapter.submitList(it)
-            Toast.makeText(this, "Yepa", Toast.LENGTH_SHORT).show()
         })
 
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL)
@@ -69,7 +72,7 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
     }
 
     fun retryLoad(){
-
+        gifViewModel.retry()
     }
 
     override fun onRetry() {
@@ -85,5 +88,28 @@ class TrendingActivity : DaggerAppCompatActivity(), ListCallback {
             .makeSceneTransitionAnimation(this, view, "gif_zoom")
 
         startActivity(intent, options.toBundle())
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_trending, menu)
+
+        val searchItem = menu?.findItem(R.id.action_search)
+        val searchView: SearchView = searchItem?.actionView as SearchView
+
+        searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Toast.makeText(this@TrendingActivity, query, Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this@TrendingActivity, SearchActivity::class.java)
+                intent.putExtra(EXTRA_QUERY, query)
+                startActivity(intent)
+                return false
+            }
+        })
+        return true
     }
 }

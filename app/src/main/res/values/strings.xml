@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Gifinder</string>
     <string name="error_button_retry">Retry</string>
+    <string name="search">Search</string>
+    <string name="found_results">Results for <i>%s</i></string>
 </resources>

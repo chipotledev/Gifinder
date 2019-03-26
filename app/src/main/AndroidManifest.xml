@@ -12,6 +12,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.SearchActivity">
+        </activity>
         <activity android:name=".ui.ZoomActivity">
         </activity>
         <activity android:name=".ui.TrendingActivity">

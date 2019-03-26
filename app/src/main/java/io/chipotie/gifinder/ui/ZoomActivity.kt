@@ -11,7 +11,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import io.chipotie.gifinder.R
 import io.chipotie.gifinder.databinding.ActivityZoomBinding
 import io.chipotie.gifinder.model.Gif
-import kotlinx.android.synthetic.main.item_gif.view.*
 
 class ZoomActivity : AppCompatActivity() {
 
