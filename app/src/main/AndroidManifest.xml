@@ -12,11 +12,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.SearchActivity">
+        <activity android:name=".ui.SearchActivity"
+                  android:configChanges="keyboard|orientation|screenSize">
         </activity>
-        <activity android:name=".ui.ZoomActivity">
+        <activity android:name=".ui.ZoomActivity"
+                  android:configChanges="keyboard|orientation|screenSize">
         </activity>
-        <activity android:name=".ui.TrendingActivity">
+        <activity android:name=".ui.TrendingActivity"
+                  android:configChanges="keyboard|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
