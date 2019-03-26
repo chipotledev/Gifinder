@@ -19,9 +19,11 @@ android {
     buildTypes {
         debug {
             buildConfigField "String", "BASE_URL", "\"https://api.giphy.com/v1/gifs/trending\""
+            buildConfigField "String", "API_KEY", "\"ddh2eOhpzDu6yniIY8iun7OzxK5APhyz\""
         }
         release {
             buildConfigField "String", "BASE_URL", "\"https://api.giphy.com/v1/gifs/trending\""
+            buildConfigField "String", "API_KEY", "\"ddh2eOhpzDu6yniIY8iun7OzxK5APhyz\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
