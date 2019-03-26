@@ -1,4 +1,4 @@
-package io.chipotie.gifinder.ui
+package io.chipotie.gifinder.ui.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +21,7 @@ class ListFooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
     companion object {
-        fun create(callback:ListCallback, parent: ViewGroup): ListFooterViewHolder {
+        fun create(callback: ListCallback, parent: ViewGroup): ListFooterViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_list_footer, parent, false)
             view.txt_error.setOnClickListener { callback.onRetry() }

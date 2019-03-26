@@ -1,4 +1,4 @@
-package io.chipotie.gifinder.ui
+package io.chipotie.gifinder.ui.list
 
 import android.content.Context
 import android.view.View
@@ -13,7 +13,9 @@ import io.chipotie.gifinder.utils.Status
  * @author savirdev on 25/03/19
  */
 
-class GifListAdapter(private val callback: ListCallback, val context: Context) : PagedListAdapter<Gif, RecyclerView.ViewHolder>(GifDiffCallback){
+class GifListAdapter(private val callback: ListCallback, val context: Context) : PagedListAdapter<Gif, RecyclerView.ViewHolder>(
+    GifDiffCallback
+){
 
     private var status = Status.LOADING
 
@@ -35,7 +37,7 @@ class GifListAdapter(private val callback: ListCallback, val context: Context) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == GIF_TYPE){
-            GifItemViewHolder.create(callback,parent, context)
+            GifItemViewHolder.create(callback, parent, context)
         }
         else {
             ListFooterViewHolder.create(callback, parent)
@@ -68,10 +70,5 @@ class GifListAdapter(private val callback: ListCallback, val context: Context) :
     fun setStatus(state: Status) {
         this.status = state
         notifyItemChanged(super.getItemCount())
-    }
-
-    interface Callback{
-        fun onRetry()
-        fun onSelectedItem(manufacturer: Gif)
     }
 }

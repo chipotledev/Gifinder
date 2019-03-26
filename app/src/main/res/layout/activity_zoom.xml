@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable name="view" type="io.chipotie.gifinder.ui.ZoomActivity"/>
+    </data>
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.ZoomActivity"
+            android:background="#000">
+
+        <ImageView
+                android:id="@+id/iv_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:layout_centerInParent="true"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close_black_24dp"
+                android:background="@android:color/transparent"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20sp"
+                android:onClick="@{ ()-> view.closeZoom() }"/>
+
+    </RelativeLayout>
+</layout>

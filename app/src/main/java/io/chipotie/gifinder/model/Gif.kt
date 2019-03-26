@@ -1,11 +1,14 @@
 package io.chipotie.gifinder.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /*
  * @author savirdev on 25/03/19
  */
 
+@Parcelize
 data class Gif(
 
     @SerializedName("type")
@@ -23,13 +26,10 @@ data class Gif(
     @SerializedName("rating")
     val rating : String,
 
-    @SerializedName("user")
-    val user : User,
-
     @SerializedName("images")
     val images: Image,
 
-    @SerializedName("String")
+    @SerializedName("title")
     val title: String
 
-)
+) : Parcelable

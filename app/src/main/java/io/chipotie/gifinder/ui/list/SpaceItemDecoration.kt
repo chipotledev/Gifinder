@@ -1,4 +1,4 @@
-package io.chipotie.gifinder.ui
+package io.chipotie.gifinder.ui.list
 
 import android.graphics.Rect
 import android.view.View

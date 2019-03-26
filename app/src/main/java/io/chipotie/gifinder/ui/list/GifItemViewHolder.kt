@@ -1,4 +1,4 @@
-package io.chipotie.gifinder.ui
+package io.chipotie.gifinder.ui.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -19,7 +19,7 @@ import java.util.*
  * @author savirdev on 22/03/19
  */
 
-class GifItemViewHolder(view: View, private val callback:ListCallback, private val context: Context) : RecyclerView.ViewHolder(view){
+class GifItemViewHolder(view: View, private val callback: ListCallback, private val context: Context) : RecyclerView.ViewHolder(view){
 
     fun bind(gif: Gif?) {
         if (gif != null) {
@@ -31,21 +31,16 @@ class GifItemViewHolder(view: View, private val callback:ListCallback, private v
                 .into(itemView.iv_gif)
 
             itemView.container.setOnClickListener{
-                callback.onSelectedItem(gif)
+                callback.onSelectedItem(gif, itemView.iv_gif)
             }
         }
-    }
-
-    private fun getRandomColor(): Int {
-        val rnd = Random()
-        return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
     }
 
     companion object {
         fun create(callback: ListCallback, parent: ViewGroup, context: Context): GifItemViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_gif, parent, false)
-            return GifItemViewHolder(view,callback,context)
+            return GifItemViewHolder(view, callback, context)
         }
     }
 }

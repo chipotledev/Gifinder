@@ -1,4 +1,4 @@
-package io.chipotie.gifinder.ui
+package io.chipotie.gifinder.ui.list
 
 import android.view.View
 import io.chipotie.gifinder.model.Gif
@@ -9,5 +9,5 @@ import io.chipotie.gifinder.model.Gif
 
 interface ListCallback{
     fun onRetry()
-    fun onSelectedItem(data: Gif)
+    fun onSelectedItem(data: Gif, view: View)
 }
