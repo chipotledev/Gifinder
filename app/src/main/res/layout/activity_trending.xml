@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.TrendingActivity">
+        xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
-</RelativeLayout>
+    <data>
+        <variable name="view" type="io.chipotie.gifinder.ui.TrendingActivity"/>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.manufacturer.ManufacturersActivity"
+            android:background="#000">
+
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error_button_retry"
+                android:layout_centerInParent="true"
+                android:onClick="@{ ()-> view.retryLoad() }"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycler_view"/>
+
+    </RelativeLayout>
+
+</layout>
